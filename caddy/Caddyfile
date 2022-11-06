@@ -1,0 +1,18 @@
+{
+        order coraza_waf first
+	email webadmin@example.org
+	storage file_system /data
+}
+
+my.example.org {
+        coraza_waf {
+                include /ruleset/coraza.conf
+                include /ruleset/sites/my.example.org/*.conf
+                include /ruleset/coreruleset/rules/*.conf
+        }
+        reverse_proxy 127.0.0.1:80 {
+		#transport http_ntlm
+	}
+}
+
+

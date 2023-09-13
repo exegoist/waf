@@ -1,0 +1,8 @@
+my.example.org {
+        import CORAZA my.example.org
+	import LOGGING example
+ 	header -Server
+        reverse_proxy 127.0.0.1:80 {
+                #transport http_ntlm
+        }
+}

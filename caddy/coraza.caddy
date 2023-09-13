@@ -1,0 +1,11 @@
+(CORAZA) {
+        coraza_waf {
+                load_owasp_crs
+                directives `
+                include /ruleset/coraza.conf
+                include /ruleset/sites/{args[0]}/prod.conf
+                include @owasp_crs/*.conf
+                include /ruleset/sites/{args[0]}/exclude.conf
+                `
+        }
+}

@@ -1,0 +1,23 @@
+version: "3.7"
+services:
+  caddy:
+    build:
+      context: ./build
+      dockerfile: Dockerfile
+    volumes:
+      - ./caddy:/caddy
+      - ./data:/data
+      - ./ruleset:/ruleset
+      - ./audit:/audit
+    ports:
+      - 80:80
+      - 443:443
+networks:
+  default:
+    ipam:
+      driver: default
+      config:
+        -
+          subnet: 10.1.5.0/24
+    driver_opts:
+      com.docker.network.bridge.name: br0

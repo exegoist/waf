@@ -1,0 +1,11 @@
+(GEOFILTER) {
+        @geofilter {
+            not maxmind_geolocation {
+                db_path "/data/GeoLite2-Country.mmdb"
+#                deny_countries NZ UNK
+                allow_countries NZ
+                }
+            not remote_ip 172.17.0.0/16 192.168.0.0/16
+        }
+        respond @geofilter 403
+}

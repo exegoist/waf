@@ -1,0 +1,11 @@
+(LOGGING) {
+        log {
+                format console
+                output file /logs/{args[0]}.log {
+                        roll_size 20MiB
+                        roll_uncompressed
+                        roll_local_time
+                        roll_keep_for 120h
+                }
+        }
+}
